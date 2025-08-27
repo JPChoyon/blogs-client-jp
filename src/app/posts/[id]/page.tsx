@@ -1,4 +1,3 @@
-
 import { notFound } from "next/navigation";
 
 type Post = {
@@ -17,7 +16,7 @@ async function getPost(id: string): Promise<Post | null> {
   return res.json();
 }
 
-// ✅ No custom PageProps, just inline typing
+// ✅ Inline params typing
 export default async function PostPage({ params }: { params: { id: string } }) {
   const post = await getPost(params.id);
   if (!post) notFound();
